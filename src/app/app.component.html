@@ -1,0 +1,61 @@
+<!-- <div *ngIf="loggedIn()" class="col-md-2" style="padding: 0; float: left; height: 100%;" id="sidebar">
+  
+</div>
+<div *ngIf="loggedIn()" class="col-md-10" style="float: left;" id="content">
+
+  <app-navBar id="content"></app-navBar>
+  <router-outlet></router-outlet>
+</div>
+
+<app-slidBarMenu ></app-slidBarMenu>
+<app-login  *ngIf="!loggedIn()"></app-login> -->
+
+<div *ngIf="loggedIn()" class="row affix-row">
+    <div class="col-md-2 col-lg-2 affix-sidebar" style=" height:  100% !important;background-color: #ecf0f1;">
+        <div id="logo" style="position:  relative;padding-top:15%;height:12%;">
+            <img src="assets/logo.png" style="margin:0 !important" /><br>
+
+
+        </div>
+        <hr>
+        <div class="sidebar-nav">
+            <div class="navbar navbar-light navbar-expand-md" role="navigation">
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                    <span class="sr-only">Menu</span> &#x2630;
+                </button>
+                <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item"><a [routerLink]="['/home']" routerLinkActive="active" class="nav-link"><i class="fas fa-home"></i>
+                                Ana Sayfa</a></li>
+                        <li class="nav-item"><a [routerLink]="['/notice']" routerLinkActive="active" class="nav-link"><i
+                                    class="fas fa-exclamation-triangle"></i>
+                                Duyurular</a></li>
+                        <li class="nav-item"><a [routerLink]="['/addNotice']" routerLinkActive="active" class="nav-link"><i
+                                    class="fas fa-plus"></i>
+                                Duyuru Ekle</a></li>
+                        <!-- <li class="nav-item"><a [routerLink]="['/addCategory']" routerLinkActive="active" class="nav-link"><i
+                                    class="fas fa-plus"></i>
+                                Kategori Ekle</a></li> -->
+                        <li class="nav-item"><a [routerLink]="['/actions']" routerLinkActive="active" class="nav-link"><i
+                                    class="fas fa-address-card"></i>
+                                Hizmetler</a></li>
+                        <li class="nav-item"><a [routerLink]="['/messages']" routerLinkActive="active" class="nav-link"><i
+                                    class="fas fa-address-card"></i>
+                                Onaylanmış Yönetim Mesajları</a></li>
+                        <li class="nav-item"><a [routerLink]="['/waitMessages']" routerLinkActive="active" class="nav-link"><i
+                                    class="fas fa-address-card"></i>
+                                Yönetim Mesajları</a></li>
+                        <li class="nav-item"> <a (click)="loggedOut()" class="nav-link"><i class="fas fa-sign-out-alt"></i>
+                                Çıkış Yap</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-10 col-lg-10 affix-content">
+        <app-navBar></app-navBar>
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+<app-login *ngIf="!loggedIn()"></app-login>

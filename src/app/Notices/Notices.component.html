@@ -1,0 +1,27 @@
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+    
+      <th scope="col">Başlık</th>
+      <th scope="col">Açıklama</th>
+      <th scope="col">Kategori</th>
+      <th scope="col">Eklenme Tarihi</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of getData">
+    
+      <td>{{data.title}}</td>
+      <td>{{data.description}}</td>
+      <td>{{data.managementCategorys.name}}</td>
+      <td> {{data.dateAdded.substr(0,10)}} {{data.dateAdded.substring(11,16)}} </td>
+      <td><button type="button" (click)="deleteData(data.id)" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Sil
+
+        </button></td>
+
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,37 @@
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Açıklama</th>
+        <th scope="col">Eklenme Tarihi</th>
+        <th scope="col">Durumu</th>
+        <th scope="col">Hizmet</th>
+        <th scope="col">Kullanıcı</th>
+        <th scope="col">Blok/Daire</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of getData">
+        <td>{{data.description}}</td>
+        <td> {{data.dateAdded.substr(0,10)}} {{data.dateAdded.substring(11,16)}} </td>
+        <td>
+          <p *ngIf="data.isCompleted; else notShow">
+            Onaylandı
+          </p>
+  
+          <ng-template #notShow>
+            <p>
+              Onay Bekliyor
+            </p>
+          </ng-template>
+        </td>
+        <td>{{data.serviceType}}</td>
+        <td>{{data.user.username}}</td>
+        <td>{{data.address}}</td>
+        <td><button type="button" class="btn btn-success" (click)="checkData(data.id)" ><i class="fas fa-check"></i>
+
+          Onayla</button></td>
+      </tr>
+    </tbody>
+  </table>
